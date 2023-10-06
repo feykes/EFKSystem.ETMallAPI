@@ -1,16 +1,12 @@
 using EFKSystem.Application.Validators.Products;
 using EFKSystem.Persistence;
-using FluentValidation;
 using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers()
-    .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true); //son kýsým uygulamada default olarak var olan validation filterýný devre dýþý býrakýyor. kendimiz yönetmek için yaptýk
-builder.Services.AddFluentValidationAutoValidation();
-
-builder.Services.AddValidatorsFromAssemblyContaining<CreateProductValidator>();
+    .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>()).ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true); //son kýsým uygulamada default olarak var olan validation filterýný devre dýþý býrakýyor. kendimiz yönetmek için yaptýk
 
 builder.Services.AddPersistenceService();
 
