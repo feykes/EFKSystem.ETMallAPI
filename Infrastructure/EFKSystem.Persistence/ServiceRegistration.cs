@@ -22,7 +22,7 @@ namespace EFKSystem.Persistence
     {
         public static void AddPersistenceService(this IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(Configurations.ConnectionString));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configurations.ConnectionString));
 
             services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
             services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();

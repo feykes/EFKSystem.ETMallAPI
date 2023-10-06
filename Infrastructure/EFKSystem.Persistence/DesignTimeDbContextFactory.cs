@@ -17,7 +17,7 @@ namespace EFKSystem.Persistence
         {
            
             DbContextOptionsBuilder<ApplicationDbContext> dbContextOptionsBuilder = new();
-            dbContextOptionsBuilder.UseNpgsql(Configurations.ConnectionString);
+            dbContextOptionsBuilder.UseSqlServer(Configurations.ConnectionString);
             return new(dbContextOptionsBuilder.Options);
         }
     }
