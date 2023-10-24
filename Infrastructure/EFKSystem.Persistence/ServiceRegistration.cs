@@ -1,10 +1,13 @@
 ﻿using EFKSystem.Application.Abstractions;
+using EFKSystem.Application.Repositories;
 using EFKSystem.Application.Repositories.Customer;
 using EFKSystem.Application.Repositories.Order;
 using EFKSystem.Application.Repositories.Product;
+using EFKSystem.Domain.Entities.Identity;
 using EFKSystem.Persistence.Concretes;
 using EFKSystem.Persistence.Configuration;
 using EFKSystem.Persistence.Contexts;
+using EFKSystem.Persistence.Repositories;
 using EFKSystem.Persistence.Repositories.Customer;
 using EFKSystem.Persistence.Repositories.Order;
 using EFKSystem.Persistence.Repositories.Product;
@@ -20,9 +23,18 @@ namespace EFKSystem.Persistence
 {
     public static class ServiceRegistration
     {
-        public static void AddPersistenceService(this IServiceCollection services)
+        public static void AddPersistenceServices(this IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configurations.ConnectionString));
+
+            services.AddIdentity<AppUser, AppRole>(options =>
+            {
+                options.Password.RequiredLength = 3;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+            }).AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
             services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
@@ -31,7 +43,17 @@ namespace EFKSystem.Persistence
             services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
             
             services.AddScoped<IProductReadRepository, ProductReadRepository>();
-            services.AddScoped<IProductWriteRepository, ProductWriteRepository>(); 
+            services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
+
+            services.AddScoped<IFileReadRepository, FileReadRepository>();
+            services.AddScoped<IFileWriteRepository, FileWriteRepository>();
+
+            services.AddScoped<IProductImageFileReadRepository, ProductImageFileReadRepository>();
+            services.AddScoped<IProductImageFileWriteRepository, ProductImageFileWriteRepository>();
+
+            services.AddScoped<IInvoiceFileReadRepository, InvoiceFileReadRepository>();
+            services.AddScoped<IInvoiceFileWriteRepository, InvoiceFileWriteRepository>();
+
         }
     }
 }

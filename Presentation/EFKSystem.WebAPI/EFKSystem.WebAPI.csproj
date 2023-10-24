@@ -16,7 +16,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Infrastructure\EFKSystem.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\EFKSystem.Infrastructure\EFKSystem.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\EFKSystem.Persistence\EFKSystem.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

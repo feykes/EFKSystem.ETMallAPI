@@ -1,5 +1,7 @@
 ﻿using EFKSystem.Domain.Entities;
 using EFKSystem.Domain.Entities.Common;
+using EFKSystem.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace EFKSystem.Persistence.Contexts
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
@@ -18,6 +20,9 @@ namespace EFKSystem.Persistence.Contexts
         public DbSet<Orders> Orders { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Customers> Customers { get; set; }
+        public DbSet<Domain.Entities.File> Files { get; set; }
+        public DbSet<ProductImageFile> ProductImageFiles { get; set; }
+        public DbSet<InvoiceFile> InvoiceFiles { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
