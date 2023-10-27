@@ -1,6 +1,4 @@
-﻿using EFKSystem.Application.Abstractions;
-using EFKSystem.Application.Abstractions.Storage;
-using EFKSystem.Application.Features.Commands.Product.CreateProduct;
+﻿using EFKSystem.Application.Features.Commands.Product.CreateProduct;
 using EFKSystem.Application.Features.Commands.Product.RemoveProduct;
 using EFKSystem.Application.Features.Commands.Product.UpdateProduct;
 using EFKSystem.Application.Features.Commands.ProductImageFile.RemoveProductImage;
@@ -8,21 +6,16 @@ using EFKSystem.Application.Features.Commands.ProductImageFile.UploadProductImag
 using EFKSystem.Application.Features.Queries.Product.GetAllProduct;
 using EFKSystem.Application.Features.Queries.Product.GetByIdProduct;
 using EFKSystem.Application.Features.Queries.ProductImageFile.GetPtoductImages;
-using EFKSystem.Application.Repositories;
-using EFKSystem.Application.Repositories.Product;
-using EFKSystem.Application.RequestParameters;
-using EFKSystem.Application.ViewModels.Products;
-using EFKSystem.Domain.Entities;
 using MediatR;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Net;
 
 namespace EFKSystem.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Admin")]
     public class ProductsController : ControllerBase
     {
         readonly IMediator _mediator;
