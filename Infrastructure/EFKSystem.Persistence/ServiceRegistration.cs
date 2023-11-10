@@ -1,4 +1,6 @@
 ﻿using EFKSystem.Application.Abstractions;
+using EFKSystem.Application.Abstractions.Services;
+using EFKSystem.Application.Abstractions.Services.Authentication;
 using EFKSystem.Application.Repositories;
 using EFKSystem.Application.Repositories.Customer;
 using EFKSystem.Application.Repositories.Order;
@@ -11,6 +13,7 @@ using EFKSystem.Persistence.Repositories;
 using EFKSystem.Persistence.Repositories.Customer;
 using EFKSystem.Persistence.Repositories.Order;
 using EFKSystem.Persistence.Repositories.Product;
+using EFKSystem.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -53,6 +56,11 @@ namespace EFKSystem.Persistence
 
             services.AddScoped<IInvoiceFileReadRepository, InvoiceFileReadRepository>();
             services.AddScoped<IInvoiceFileWriteRepository, InvoiceFileWriteRepository>();
+
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IExternalAuthentication, AuthService>();
+            services.AddScoped<IInternalAuthentication, AuthService>();
 
         }
     }

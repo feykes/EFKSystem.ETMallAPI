@@ -1,4 +1,5 @@
 ﻿using EFKSystem.Application.DTOs;
+using EFKSystem.Domain.Entities.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace EFKSystem.Application.Abstractions.Token
 {
     public interface ITokenHandler
     {
-        DTOs.Token CreateAccessToken(int minute);
+        DTOs.Token CreateAccessToken(int second, AppUser appUser);
+
+        string CreateRefreshToken();
     }
 }

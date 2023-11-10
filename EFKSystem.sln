@@ -5,19 +5,19 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7AD8D72C-8A20-4DA1-BEBA-A0813D5F5B05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFKSystem.Domain", "Core\Domain\EFKSystem.Domain.csproj", "{CA50ED47-E9F5-48DD-8C02-4B6F14D7E4B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFKSystem.Domain", "Core\Domain\EFKSystem.Domain.csproj", "{CA50ED47-E9F5-48DD-8C02-4B6F14D7E4B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFKSystem.Application", "Core\Infrastructure\EFKSystem.Application.csproj", "{038EFD34-8420-490F-945D-ECD1DC0A32C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFKSystem.Application", "Core\Infrastructure\EFKSystem.Application.csproj", "{038EFD34-8420-490F-945D-ECD1DC0A32C0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{96020F0A-0521-4CFE-97BA-75D4EADB6DE3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{DA61667D-1DA9-46A9-B3B1-1CF3A7615C41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFKSystem.Infrastructure", "Infrastructure\EFKSystem.Infrastructure\EFKSystem.Infrastructure.csproj", "{1C1F6213-55B9-4ECA-A350-41E498D44D9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFKSystem.Infrastructure", "Infrastructure\EFKSystem.Infrastructure\EFKSystem.Infrastructure.csproj", "{1C1F6213-55B9-4ECA-A350-41E498D44D9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFKSystem.Persistence", "Infrastructure\EFKSystem.Persistence\EFKSystem.Persistence.csproj", "{8FE5461D-EBEA-4D47-9FEB-3D383B03FA28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFKSystem.Persistence", "Infrastructure\EFKSystem.Persistence\EFKSystem.Persistence.csproj", "{8FE5461D-EBEA-4D47-9FEB-3D383B03FA28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFKSystem.WebAPI", "Presentation\EFKSystem.WebAPI\EFKSystem.WebAPI.csproj", "{7206FC49-F6D3-4D4A-8A10-130C05458714}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFKSystem.WebAPI", "Presentation\EFKSystem.WebAPI\EFKSystem.WebAPI.csproj", "{7206FC49-F6D3-4D4A-8A10-130C05458714}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
